@@ -1,12 +1,12 @@
 ﻿@model WebApplication1.Models.Item
 @{
-    ViewData["Title"] = "Delete Page";
+    ViewData["Title"] = "Update Page";
 }
-<form asp-action="DeletePost" method="post">
-    <input asp-for="Id" hidden/>
+<form asp-action="Update" method="post">
+    <input asp-for="Id" hidden />
     <div class="border p-3">
         <div class="form-group row">
-            <h2 class="text-black-50 pl-3">Delete item</h2>
+            <h2 class="text-black-50 pl-3">Update item</h2>
         </div>
         <div class="row">
             <div class="col-12">
@@ -23,22 +23,25 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <input asp-for="ItemName" disabled class="form-control" />
+                        <input asp-for="ItemName" class="form-control" />
+                        <span asp-validation-for="ItemName" class="text-danger"></span>
                     </div>
                     <div class="col-4">
-                        <input asp-for="Borrower" disabled class="form-control" />
+                        <input asp-for="Borrower" class="form-control" />
+                        <span asp-validation-for="Borrower" class="text-danger"></span>
                     </div>
                     <div class="col-4">
-                        <input asp-for="Lender" disabled class="form-control" />
+                        <input asp-for="Lender" class="form-control" />
+                        <span asp-validation-for="Lender" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-8 offset-2 row">
                         <div class="col">
-                            <input type="submit" class="btn btn-danger w-75" value="Delete" />
+                            <input type="submit" class="btn btn-primary w-75" value="Update" />
                         </div>
                         <div class="col">
-                            <a asp-action="Index" class="btn btn-primary w-75">Back</a>
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
                         </div>
                     </div>
                 </div>
@@ -46,3 +49,7 @@
         </div>
     </div>
 </form>
+
+@section Scripts{
+    @{ <partial name="_ValidationScriptsPartial" />}
+}
